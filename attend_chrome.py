@@ -52,6 +52,8 @@ elif(PM <= now <END):#午後登録.
 elif(END <= now):#下校登録.
     radio_buttons =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[3]/label/div/div[2]/div/span')
     radio_buttons.click()
+else:#時間外
+    driver.quit()
 
 #次へ.
 next_buttons =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
