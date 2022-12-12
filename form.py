@@ -19,7 +19,7 @@ elif(PM <= now <END):#午後登録.
     label_1 = ttk.Label(root,text ='中間登録をします')
 elif(END <= now):#下校登録.
     label_1 = ttk.Label(root,text ='下校登録をします')
-else:
+else:#時間外
     label_1 = ttk.Label(root,text ='時間外です')
 
 button_1 = ttk.Button(root,text = 'OK',command=lambda:())
