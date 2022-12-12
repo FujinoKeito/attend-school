@@ -34,22 +34,22 @@ driver = webdriver.Chrome(options = options)
 dt_now = datetime.datetime.now()
 now = dt_now.time()
 #比較時刻.
-gozen = datetime.time(6, 0, 0)
-gogo = datetime.time(12, 10, 0)
-gekou = datetime.time(14, 50, 0)
+AM = datetime.time(6, 0, 0)
+PM = datetime.time(12, 10, 0)
+END = datetime.time(14, 50, 0)
 
 driver.get(url)
 
 STnum =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
 STnum.send_keys(num)
 
-if(gozen <= now <gogo):#午前登録.
+if(AM <= now <PM):#午前登録.
     radio_buttons =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[1]/label/div/div[2]/div/span')
     radio_buttons.click()
-elif(gogo <= now <gekou):#午後登録.
+elif(PM <= now <END):#午後登録.
     radio_buttons =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[2]/label/div/div[2]/div/span')
     radio_buttons.click()
-elif(gekou <= now):#下校登録.
+elif(END <= now):#下校登録.
     radio_buttons =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[3]/label/div/div[2]/div/span')
     radio_buttons.click()
 
@@ -57,7 +57,7 @@ elif(gekou <= now):#下校登録.
 next_buttons =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
 next_buttons.click()
 
-if(gozen <= now <gekou):#体温記録.
+if(AM <= now <END):#体温記録.
     wait = WebDriverWait(driver, 10) #読み込み待ち.
     element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/span')))
 
@@ -79,7 +79,7 @@ if(gozen <= now <gekou):#体温記録.
     wait = WebDriverWait(driver, 10) #読み込み待ち.
     element = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[2]/div[2]/div[2]/a/span')))
 
-elif(gekou <= now):#下校登録.
+elif(END <= now):#下校登録.
     wait = WebDriverWait(driver, 10) #読み込み待ち.
     element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[2]/div[1]/div[2]/span')))
 
