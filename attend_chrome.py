@@ -68,7 +68,7 @@ if(gozen <= now <gekou):#体温記録.
     next_buttons.click()
 
     wait = WebDriverWait(driver, 10) #読み込み待ち.
-    element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[2]/div[1]/div[2]/span')))
+    element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')))
 
     tem_textbox =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input') #ランダム体温を入力
     tem_textbox.send_keys(tem)
@@ -76,11 +76,17 @@ if(gozen <= now <gekou):#体温記録.
     send_buttons =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[2]/div[1]/div[2]/span')
     send_buttons.click()
 
+    wait = WebDriverWait(driver, 10) #読み込み待ち.
+    element = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[2]/div[2]/div[2]/a/span')))
+
 elif(gekou <= now):#下校登録.
     wait = WebDriverWait(driver, 10) #読み込み待ち.
     element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[2]/div[1]/div[2]/span')))
 
     send_buttons =driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[2]/div[1]/div[2]/span')
     send_buttons.click()
+
+    wait = WebDriverWait(driver, 10) #読み込み待ち.
+    element = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[2]/div[2]/div[2]/a/span')))
 
 driver.quit()
