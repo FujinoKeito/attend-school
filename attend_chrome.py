@@ -19,7 +19,7 @@ url = config['data']['url']#url
 num = config['data']['num']
 profpass = config['chrome']['profilepass']#profilepass
 
-tem = str(36 + random.randint(3, 8) / 10) #ランダム体温
+tem = str(36 + random.randint(3, 8) / 10) #ランダム体温.
 
 #UserProfileSetting
 ChromeDriverManager().install()
