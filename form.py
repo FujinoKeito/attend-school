@@ -5,7 +5,7 @@ import datetime
 
 #Pythonファイル読み込み.
 def execute_py():
-    subprocess.call("python attend_chrome.py")
+    subprocess.call("ファイルパス")#本体ファイル読み込み.
 
 #現在時刻取得.
 dt_now = datetime.datetime.now()
