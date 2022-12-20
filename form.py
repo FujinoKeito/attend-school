@@ -1,11 +1,7 @@
 from tkinter import *
 from tkinter import ttk
-import subprocess
+import attend_chrome
 import datetime
-
-#Pythonファイル読み込み.
-def execute_py():
-    subprocess.call("ファイルパス")#本体ファイル読み込み.
 
 #現在時刻取得.
 dt_now = datetime.datetime.now()
@@ -28,7 +24,7 @@ elif(END <= now):#下校登録.
 else:#時間外.
     label_1 = ttk.Label(root,text ='時間外です',font=("ヒラギノ角ゴ", "20", "normal"))
 
-button_1 = ttk.Button(root,text = 'OK', padding=15, command=execute_py)
+button_1 = ttk.Button(root,text = 'OK', padding=40, command=attend_chrome.auto_chrome)
 
 #レイアウト.
 label_1.place(x=100,y=100)
